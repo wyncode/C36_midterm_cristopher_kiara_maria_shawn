@@ -12,12 +12,13 @@ router.get('/api/recipes', async (req, res, next) => {
   } else {
     url = `https://api.edamam.com/search?q=tacos&app_id=${process.env.APP_ID}&app_key=${process.env.APP_KEY}`;
   }
-
+  // from=0&to=50
   axios
     .get(url)
     .then(function(response) {
-      const arr = response.data.hits.slice(0, 20);
+      const arr = response.data.hits;
       res.json(arr);
+      arr.map(item => console.log(item.recipe.label));
     })
     .catch(function(error) {
       // handle error
