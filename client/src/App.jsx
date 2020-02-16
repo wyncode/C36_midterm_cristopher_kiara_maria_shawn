@@ -2,12 +2,13 @@ import React from 'react';
 import './App.css';
 import './components/NavBar';
 import NavBar from './components/NavBar';
-import Navigation from './components/NavBar';
+// import Navigation from './components/NavBar';
 import Button from '@material-ui/core/Button';
-import { BrowserRouter, Router, Switch, Route, Link } from 'react-router-dom';
-import Home from './components/HomePage';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import SearchTacos from './components/HomePage';
+import HomePage from './components/HomePage';
 import About from './components/ContactUs';
-import Recipes from './components/Recipes';
+import TacoRecipes from './components/TacoRecipes';
 
 // class App extends React.Component {
 //   state = { serverMessage: '' };
@@ -22,14 +23,30 @@ import Recipes from './components/Recipes';
 export default function App() {
   return (
     <>
+    <Router>
       <NavBar>
         <Button>Home Logo</Button>
         <Button>About Us</Button>
         <Button>Search Form</Button>
       </NavBar>
+        <Switch>
+          <Route exact path='/'>
+            <SearchTacos />
+          </Route>
+          <Route path='/recipes'>
+            <TacoRecipes />
+          </Route>
+          <Route path='/about'>
+            <About />
+          </Route>
+        </Switch>
+      </Router>
+      
     </>
   );
 }
 // function PageRoutes() {
 //   <div></div>;
+// }
+//   }
 // }
