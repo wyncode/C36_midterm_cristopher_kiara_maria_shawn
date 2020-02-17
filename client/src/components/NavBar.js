@@ -29,33 +29,39 @@ export default function LabelBottomNavigation() {
   // make search function work.
   return (
     <>
-        <BottomNavigation
-            value={value}
-            onChange={handleChange}
-            className={classes.root}
-          >
-          <div style={{display: 'flex', justifyContent: 'space-between', width: '100%'}}>
+      <BottomNavigation
+        value={value}
+        onChange={handleChange}
+        className={classes.root}
+      >
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            width: '100%'
+          }}
+        >
           <Box>
-          <Link to='/'>
-            <BottomNavigationAction
-              label="Home"
-              value="Home"
-              icon={<HomeIcon />}
-            />
+            <Link to="/">
+              <BottomNavigationAction
+                label="Home"
+                value="Home"
+                icon={<HomeIcon />}
+              />
             </Link>
-            <Link to='/about-us'>
-            <BottomNavigationAction
-              label="About Us"
-              value="About Us"
-              icon={<InfoIcon />}
-            />
+            <Link to="/about">
+              <BottomNavigationAction
+                label="About Us"
+                value="About Us"
+                icon={<InfoIcon />}
+              />
             </Link>
-            <Link to='/favorite-tacos'>
-            <BottomNavigationAction
-              label="Favorite Taco Recipes"
-              value="favorites Taco Recipes"
-              icon={<FavoriteIcon />}
-            />
+            <Link to="/favorite-tacos">
+              <BottomNavigationAction
+                label="Favorite Taco Recipes"
+                value="favorites Taco Recipes"
+                icon={<FavoriteIcon />}
+              />
             </Link>
           </Box>
           <Box>
@@ -63,7 +69,7 @@ export default function LabelBottomNavigation() {
               <TextField id="standard-basic" label="Search for Tacos!" />
             </form>
           </Box>
-          </div>
+        </div>
       </BottomNavigation>
     </>
   );
