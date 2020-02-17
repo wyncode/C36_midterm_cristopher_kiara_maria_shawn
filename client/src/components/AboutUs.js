@@ -12,11 +12,12 @@ import { Link } from 'react-router-dom';
 const About = () => {
   const useStyles = makeStyles({
     root: {
-      maxWidth: 345,
+      maxWidth: 250,
       background: 'linear-gradient(45deg, #E4FF01 30%, #000000 90%)'
     },
     media: {
-      height: 140
+      height: 250,
+      width: 250
     }
   });
 
@@ -26,7 +27,7 @@ const About = () => {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="#"
+          image={require('./Portraits/GuerreroCristopher.jpg')}
           title="Cristopher Guerrero"
         />
         <CardContent>
