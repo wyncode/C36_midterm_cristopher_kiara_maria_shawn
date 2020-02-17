@@ -6,8 +6,7 @@ import NavBar from './components/NavBar';
 import Button from '@material-ui/core/Button';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import SearchTacos from './components/HomePage';
-import HomePage from './components/HomePage';
-import About from './components/ContactUs';
+import About from './components/AboutUs';
 import TacoRecipes from './components/TacoRecipes';
 
 // class App extends React.Component {
@@ -23,25 +22,24 @@ import TacoRecipes from './components/TacoRecipes';
 export default function App() {
   return (
     <>
-    <Router>
-      <NavBar>
-        <Button>Home Logo</Button>
-        <Button>About Us</Button>
-        <Button>Search Form</Button>
-      </NavBar>
+      <Router>
+        <NavBar>
+          <Button>Home Logo</Button>
+          <Button>About Us</Button>
+          <Button>Search Form</Button>
+        </NavBar>
         <Switch>
-          <Route exact path='/'>
+          <Route exact path="/">
             <SearchTacos />
           </Route>
-          <Route path='/recipes'>
+          <Route path="/recipes">
             <TacoRecipes />
           </Route>
-          <Route path='/about'>
+          <Route path="/about">
             <About />
           </Route>
         </Switch>
       </Router>
-      
     </>
   );
 }
