@@ -2,15 +2,16 @@ const { Router } = require('express');
 const router = Router();
 const axios = require('axios');
 
-router.get('/api/recipes', async (req, res, next) => {
+router.get('/api/recipes/:query/', async (req, res, next) => {
   const healthLabel = req.query.healthLabel;
 
   let url;
 
   if (healthLabel !== undefined) {
-    url = `https://api.edamam.com/search?q=tacos&app_id=${process.env.APP_ID}&app_key=${process.env.APP_KEY}&health=${healthLabel}`;
+    console.log(req.params.query);
+    url = `https://api.edamam.com/search?q=${req.params.query}s&app_id=${process.env.APP_ID}&app_key=${process.env.APP_KEY}&health=${healthLabel}`;
   } else {
-    url = `https://api.edamam.com/search?q=tacos&app_id=${process.env.APP_ID}&app_key=${process.env.APP_KEY}`;
+    url = `https://api.edamam.com/search?q=tacos+${req.params.query}&app_id=${process.env.APP_ID}&app_key=${process.env.APP_KEY}&from=0&to=19`;
   }
   // from=0&to=50
   axios
