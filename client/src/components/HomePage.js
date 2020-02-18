@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
+import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
 
 const SearchTacos = () => {
@@ -12,6 +19,7 @@ const SearchTacos = () => {
     const result = await axios.get(`/api/recipes/${query}`);
     setApiData(result.data);
     // make axios get request to backend
+    console.log(result.data)
     setQuery('');
   };
 
@@ -54,8 +62,36 @@ const SearchTacos = () => {
         </form>
       </div>
       {apiData.length ? (
-        apiData.map(recipe => {
-          return <p>{recipe.recipe.label}</p>;
+        apiData.map(item => {
+          return(
+            
+            <Card className={classes.root}>
+      <CardActionArea>
+        <CardMedia
+        style = {{ height: "200px", width:"200px"}}
+          className={classes.media}
+          image={item.recipe.image}
+          title="Contemplative Reptile"
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+            {item.recipe.label}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {item.recipe.healthLabels.join(", ")}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <Button size="small" color="primary">
+          Share
+        </Button>
+        <Button size="small" color="primary">
+          Learn More
+        </Button>
+      </CardActions>
+    </Card>
+          ) 
         })
       ) : (
         <h1>Search now!</h1>
