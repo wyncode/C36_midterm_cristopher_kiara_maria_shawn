@@ -1,19 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
 import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import { AppContext } from '../context/AppContext';
+
 
 const SearchTacos = () => {
+  const history = useHistory();
+  const context = useContext(AppContext)
   const [apiData, setApiData] = useState([]);
   const [query, setQuery] = useState('');
+  const [userSelection, setUserSelection] = useState(0);
 
+ 
   const handleSubmit = async e => {
     e.preventDefault();
     const result = await axios.get(`/api/recipes/${query}`);
@@ -22,6 +29,11 @@ const SearchTacos = () => {
     console.log(result.data)
     setQuery('');
   };
+
+  const onRecipeClick = recipe => {
+    context.setSelectedRecipe(recipe)
+    history.push("/recipes")
+  }
 
   const HandleChange = event => {
     setQuery(event.target.value);
@@ -38,8 +50,10 @@ const SearchTacos = () => {
       border: "1px solid black",
       margin: theme.spacing(1),
       margin: 150
+
     }
     }
+
 ));
 
   const classes = useStyles();
@@ -86,7 +100,9 @@ const SearchTacos = () => {
                 </CardContent>
               </CardActionArea>
               <CardActions>
-                <Button size="small" color="primary">
+
+                <Button onClick={() => onRecipeClick(item)} size="small" color="primary">
+
                   Learn More
                 </Button>
               </CardActions>
