@@ -28,28 +28,28 @@ const SearchTacos = () => {
   };
 
   const useStyles = makeStyles(theme => ({
-    root: {
-      '& > *': {
-        margin: theme.spacing(1)
-      }
+    cards: {
+      maxWidth: 350,
+      backgroundColor: '#e0e0e0',
+    },
+    search: {
+      display: 'flex',
+      justifyContent: "center",
+      border: "1px solid black",
+      margin: theme.spacing(1),
+      margin: 150
     }
-  }));
+    }
+));
 
   const classes = useStyles();
 
   return (
-    <div>
-      <div
-        style={{
-          display: 'flex',
-          width: '100',
-          justifyContent: 'center',
-          marginTop: '15rem'
-        }}
-      >
+    <>
+  
         <form
           onSubmit={handleSubmit}
-          className={classes.root}
+          className={classes.search}
           noValidate
           autoComplete="off"
         >
@@ -60,44 +60,48 @@ const SearchTacos = () => {
             inputProps={{ 'aria-label': 'description' }}
           />
         </form>
-      </div>
+        <div className="cards">
       {apiData.length ? (
         apiData.map(item => {
           return(
-            
-            <Card className={classes.root}>
-      <CardActionArea>
-        <CardMedia
-        style = {{ height: "200px", width:"200px"}}
-          className={classes.media}
-          image={item.recipe.image}
-          title="Contemplative Reptile"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {item.recipe.label}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {item.recipe.healthLabels.join(", ")}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
-      </CardActions>
-    </Card>
-          ) 
-        })
+           
+            <Card className={classes.cards}>
+              <CardActionArea>
+                <CardMedia
+                  style = {{ 
+                  height: "200px", 
+                  width:"400px",
+                }}
+                className={classes.cards}
+                image={item.recipe.image}
+                title="Contemplative Reptile"
+                />
+                <CardContent>
+                  <Typography disableTypography variant="h5" component="h2">
+                    {item.recipe.label}
+                  </Typography>
+                  <Typography disableTypography='false' variant="body2" color="textSecondary" component="p">
+                    {item.recipe.healthLabels.join(", ")}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+              <CardActions>
+                <Button size="small" color="primary">
+                  Learn More
+                </Button>
+              </CardActions>
+            </Card>
+          
+        ) 
+      })
       ) : (
         <h1>Search now!</h1>
       )}
-    </div>
+      </div>
+    </>
   );
+  
+  
 };
 
 export default SearchTacos;

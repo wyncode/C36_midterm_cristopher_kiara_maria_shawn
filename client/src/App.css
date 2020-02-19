@@ -1,15 +1,11 @@
 /* JUST FOR DEMO PURPORSES, REPLACE WITH YOUR OWN CODE */
 
-#demo {
+.cards {
   width: 100vw;
-  height: 100vh;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  padding-left: 40px;
 }
-
-#demo h1 {
-  display: grid;
-  place-items: center;
-}
-
 /* END DEMO */
