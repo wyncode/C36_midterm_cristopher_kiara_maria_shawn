@@ -50,8 +50,10 @@ const SearchTacos = () => {
       border: "1px solid black",
       margin: theme.spacing(1),
       margin: 150
+
     }
     }
+
 ));
 
   const classes = useStyles();
@@ -98,7 +100,9 @@ const SearchTacos = () => {
                 </CardContent>
               </CardActionArea>
               <CardActions>
+
                 <Button onClick={() => onRecipeClick(item)} size="small" color="primary">
+
                   Learn More
                 </Button>
               </CardActions>
