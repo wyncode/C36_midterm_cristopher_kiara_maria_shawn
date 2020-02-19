@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Redirect } from 'react-router-dom';
+import { AppContext } from '../context/AppContext';
 
 const TacoRecipes = () => {
+  const context = useContext(AppContext)
+  if (!context.selectedRecipe.recipe) return <Redirect to="/" />
+  
   return (
-      <div>
-          <h1>This is the Recipe Page</h1>
-      </div>
+    <div>
+      This is the recipe page
+      <p>{context.selectedRecipe.recipe.label}</p>
+    </div>
   )
 }
 
