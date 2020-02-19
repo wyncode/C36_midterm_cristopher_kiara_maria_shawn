@@ -8,4 +8,42 @@
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   padding-left: 40px;
 }
-/* END DEMO */
+.recipeLabel {
+  display: flex;
+  /* align-self: center; */
+  justify-content: center;
+  padding-top: 20px;
+  border: 1px solid red;
+  }
+.picture {
+  margin-left: 20px;
+  border: 1px solid red;
+}
+
+.servingSize {
+  margin-left: 25rem;
+  margin-top: -20rem;
+
+}
+
+.ingredients {
+  margin-left: 24rem;
+  font-size: large;
+  border: 1px solid red;
+}
+
+.healthLabel {
+  padding-left: 20px;
+  border: 1px solid red;
+}
+
+.cautions {
+  margin-left: 20px;
+  border: 1px solid red;
+}
+
+.calories {
+  margin-left: 20px;
+  border: 1px solid red;
+}
+
