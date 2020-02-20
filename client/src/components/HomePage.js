@@ -12,6 +12,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import { AppContext } from '../context/AppContext';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import logo from '../assets/orange_and_white_corporate_social_media_post.png';
 
 const SearchTacos = () => {
   const history = useHistory();
@@ -70,6 +71,11 @@ const SearchTacos = () => {
       '& > * + *': {
         marginTop: theme.spacing(2)
       }
+    },
+    mainLogo: {
+      display: 'flex',
+      justifyContent: 'center',
+      height: 350
     }
   }));
 
@@ -77,6 +83,9 @@ const SearchTacos = () => {
 
   return (
     <>
+      <div className={classes.mainLogo}>
+        <img src={logo} alt={'logo'} />
+      </div>
       <form
         onSubmit={handleSubmit}
         noValidate
@@ -88,7 +97,7 @@ const SearchTacos = () => {
           className={classes.search}
           value={query}
           id="outlined-basic"
-          label="Look for Taco's Here!"
+          label="Look for Taco recipie's here!"
           variant="outlined"
         />
         <Button
@@ -146,7 +155,7 @@ const SearchTacos = () => {
               );
             })
           ) : (
-            <h1>Search now!</h1>
+            <h1></h1>
           )}
         </div>
       )}

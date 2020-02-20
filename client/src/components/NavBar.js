@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
-    background: 'linear-gradient(45deg, #E4FF01 30%, #FF0101 90%)',
+    background: 'linear-gradient(45deg, #FF0101 30%, #E4FF01 90%)',
     display: 'flex',
     justifyContent: 'flex-start',
     flexGrow: 1
