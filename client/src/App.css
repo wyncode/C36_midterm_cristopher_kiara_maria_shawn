@@ -8,9 +8,11 @@
 body {
   background-image: url(https://lh3.googleusercontent.com/proxy/mguwy4tXWCoa7HEaGtfCJ6_eqVnTfBEd6L8lEN2y4mWo2FT-lcvLFAboANPVxEJrzziqTVejMBOMlUXCJiUQf9mu9biepbln3srBHpx7_adGkp26AyhHpUY9MZ1nCw6nKg);
   background-repeat: no-repeat;
-   background-size: cover;
+  background-size: cover;
 }
-
+a {
+  text-decoration: none;
+}
 
 .cards {
   width: 100vw;
@@ -18,7 +20,7 @@ body {
   grid-column-gap: 10px;
   grid-row-gap: 10px;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  padding-left: 40px;
+  padding-left: 0px;
 }
 .recipeLabel {
   font-style: italic;
