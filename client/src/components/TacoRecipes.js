@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { Redirect } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
-import { Box } from '@material-ui/core';
 
 const TacoRecipes = () => {
   const context = useContext(AppContext)
@@ -27,7 +26,7 @@ const TacoRecipes = () => {
     </ul>
     <div className="recipeDetails">
     <div className="healthLabel"> 
-        <box>
+    <box>
     <p>Health Labels: </p>
       {context.selectedRecipe.recipe.healthLabels && context.selectedRecipe.recipe.healthLabels.map(
         (item, key) => {
