@@ -31,7 +31,6 @@ const SearchTacos = () => {
       setLoading(false);
       setApiData(result.data);
       // make axios get request to backend
-      console.log(result.data);
       setQuery('');
     }
   };
@@ -118,7 +117,7 @@ const SearchTacos = () => {
           {apiData.length ? (
             apiData.map(item => {
               return (
-                <Card className={classes.cards}>
+                <Card key={item.recipe.uri} className={classes.cards}>
                   <CardActionArea>
                     <CardMedia
                       style={{

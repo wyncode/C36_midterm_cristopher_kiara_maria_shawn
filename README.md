@@ -1,71 +1,61 @@
-# Node / Create-React-App mashup
+<h1 align="center">A simplified taco search form built with React, React Router and Material UI</h1>
 
-Read the instructions thoroughly before starting your project.
+<div align="center">Auto formatted with Prettier</div>
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/59033f64f94cfd6693fd)
+<h3 align="center">
+  <a href="https://api.edamam.com/search?q=${req.params.query}s&app_id=${process.env.APP_ID}&app_key=${process.env.APP_KEY}&health=${healthLabel">View API</a>
+</h3>
 
-https://documenter.getpostman.com/view/6130650/SzKPW2F2?version=latest#8626c785-dd1a-4b4e-b237-9c3975854eee
+## What is this and who is it for 🤷‍♀️
+Anyone who's interested in Taco Recipes.
 
-## Setup
 
-- `git clone` this repo
-- `cd` into it.
-- `yarn install`
-- `cd client && yarn install`
+## Status
+Full functionality built in. Basic CSS/Styles have been incorporated - next phase would be to add additional layers of CSS and styling to enhance UX.
 
-## To run your Express.JS and React developer environment locally
 
-Make sure you are in your project's directory, and then:
+## Features
 
-```
-yarn dev
-```
+- Proven, scalable, and easy to understand project structure
+- Written in React, only functional components with hooks
+- Simple local Express Server
+- Client written in Babel powered JavaScript
+- API data pulled using Axios
+- Data rendered from API displays list of Taco Recipes for the given category input by user.
+      Simple search form on home page allows user to input taco category query.
+      Taco recipes displayed on homepage via cards and grid layout.
+      Upon selection of specific recipe user is taken to new page with full recipe displayed.
+      Recipe page displays image, description, ingredient list, and cooking instructions.
+      About page includes developer's profile picture and Github link.
+      Home page icon built into sticky nav bar allows user to return to home page view for additional searches.     
 
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser. The page will reload if you make edits.
 
-## To deploy
+## Setting up development environment 🛠
 
-- `heroku create your-app-name`
-- `git push heroku master`
+- git clone this repo
+- cd into it
+- run "yarn" in terminal. This will install the packages required for the App and initialize local server.
+- cd into client folder and run "yarn" command in terminal. This will install the packages required for the App.
+- Create .env file and follow the .env.sample at the roots.
 
-## Project Requirements
+//To run your Express.JS and React developer environment locally
+Make sure you are in your project's dicrectory, and then run the following command in terminal:
+- "yarn dev"
+//Open http://localhost:8080 to view in the browser.
 
-- [ ] Your project should pull data from an API. There are lots of options [here](https://github.com/toddmotto/public-apis) and [here](https://market.mashape.com/).
-  - Avoid any APIs that require OAuth (we'll talk about that later).
-  - Many APIs require an API key. Just sign up for an account and attach the key to your URL. Please make sure not to share your secret keys in a public GitHub repo.
-  - Some APIs don't allow _Cross-Origin Resource Sharing_ (CORS), meaning you can't make AJAX requests to them. You can get around this by proxying your requests with your Express server.
-- [ ] Your project should render a list of data from the API.
-  - [ ] Your project should allow the list to be filtered or searched.
-- [ ] Your project should show details about a single resource when clicked.
-- [ ] Your project should look (really) pretty!
-- [ ] You and your team should employ good Git and GitHub collaboration practices.
-- [ ] Your project must have a README.md file explaining what the project does and why it matters. [Here's an example](https://github.com/codeforamerica/howto/blob/master/Good-READMEs.md) of a great README.md template.
 
-| Rubric Criterion                                                                                        | Points |
-| ------------------------------------------------------------------------------------------------------- | ------ |
-| Ability to search or filter, use of React Router                                                        | 10     |
-| Code formatting and quality: indentation, variable and file naming conventions, etc.                    | 10     |
-| No unused variables or imports, compiler errors                                                         | 10     |
-| Use of class components or react hooks when state is needed and functional components when state is not | 10     |
-| Proper use of environment variables for API keys or CORS proxy if needed                                | 10     |
-| Overall look and feel of application, well organized CSS files                                          | 10     |
-| Well written documentation                                                                              | 10     |
-| Use of GitHub issues, branches and commit messages                                                      | 10     |
-| Look and feel of demo slide deck                                                                        | 10     |
-| Ability to explain code decisions in demo                                                               | 10     |
-| Ability to defend code decisions in response to panel questions                                         | 10     |
+### Proper authentication system 🔐
 
-## Bonus
+The API Website:
+https://api.edamam.com/search?q=${req.params.query}s&app_id=${process.env.APP_ID}&app_key=${process.env.APP_KEY}&health=${healthLabel
 
-- Fanciful animations and transitions
-- Incorporate multiple APIs into a single app
+- Sign up with your email.
+- Get your API Key.
+- Place API Key in the .env file.
 
-## Demo Requirements
 
-Create a slide deck for the technical panel. (Here's an [example](https://docs.google.com/presentation/d/15rfR-S5qAlzx4rHwBp_kJOlu0nQ7hcZOruTwbH6zRvQ/edit?usp=sharing).)
+## Authors:
 
-- It should focus on _how_ you built the app.
-- Include code snippets with brief explanations. Or, specific references to the location of the code in your GitHub repo.
-- It should emphasize your technical setbacks and solutions.
-- Get straight to the point.
-- Be prepared to answer questions.
+- Christopher Guerro
+- Maria Beckles
+- Shawn Marcotte
