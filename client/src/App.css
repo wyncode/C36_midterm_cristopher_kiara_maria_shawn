@@ -1,4 +1,9 @@
 /* JUST FOR DEMO PURPORSES, REPLACE WITH YOUR OWN CODE */
+.recipeDetails {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 
 .cards {
   width: 100vw;
@@ -9,41 +14,48 @@
   padding-left: 40px;
 }
 .recipeLabel {
+  font-style: italic;
   display: flex;
-  /* align-self: center; */
   justify-content: center;
   padding-top: 20px;
-  border: 1px solid red;
+  padding-bottom: 15px;
   }
-.picture {
-  margin-left: 20px;
-  border: 1px solid red;
+img {
+  margin-left: 70px;
+  border-radius: 10px;
+  border: 1px solid gray;
 }
 
 .servingSize {
-  margin-left: 25rem;
+  margin-left: 37rem;
   margin-top: -20rem;
-
 }
 
 .ingredients {
-  margin-left: 24rem;
+  margin-left: 30rem;
   font-size: large;
-  border: 1px solid red;
 }
 
 .healthLabel {
-  padding-left: 20px;
-  border: 1px solid red;
+  padding-top: 10px;
+  color: rgb(30, 114, 30);
+  position: relative;
+  text-align: center;
+  margin-left: 0px;
+  /* margin-top: 6rem; */
 }
 
 .cautions {
-  margin-left: 20px;
-  border: 1px solid red;
+  padding-top: 10px;
+  position: relative;
+  color: rgb(30, 114, 30);
+  /* margin-top: 6rem; */
+  text-align: center;
 }
 
 .calories {
-  margin-left: 20px;
-  border: 1px solid red;
+  color: rgb(30, 114, 30);
+  margin-top: 5rem;
+  position: relative;
 }
 

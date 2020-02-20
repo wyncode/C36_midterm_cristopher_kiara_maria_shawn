@@ -9,11 +9,12 @@ const TacoRecipes = () => {
   
   return (
   <>
+  
     <div>
       <h1 className="recipeLabel">{context.selectedRecipe.recipe.label}</h1>
     </div>
-    <div className="picture">
-      <p><img src={context.selectedRecipe.recipe.image} alt={context.selectedRecipe.recipe.label} /></p>
+    <div>
+      <p className="picture"><img src={context.selectedRecipe.recipe.image} alt={context.selectedRecipe.recipe.label} /></p>
     </div>
     <div className="servingSize">
       <h3> Serving Size: {context.selectedRecipe.recipe.yield}</h3>
@@ -24,22 +25,29 @@ const TacoRecipes = () => {
             return <li key={key.text}>{item}</li>
         })}
     </ul>
-    <box className='healthLabel'>
+    <div className="recipeDetails">
+    <div className="healthLabel"> 
+        <box>
+    <p>Health Labels: </p>
       {context.selectedRecipe.recipe.healthLabels && context.selectedRecipe.recipe.healthLabels.map(
         (item, key) => {
             return <h6 key={key.text}>{item}</h6>
         })}
-    </box>
-    <div className='cautions'>
-      {context.selectedRecipe.recipe.cautions && context.selectedRecipe.recipe.cautions.map(
+        </box>
+    </div>
+    <box className="cautions"> 
+    <p>Cautions: </p>
+    {context.selectedRecipe.recipe.cautions && context.selectedRecipe.recipe.cautions.map(
         (item, key) => {
             return <h6 key={key.text}>{item}</h6>
         })}
+    </box>
+    <div>
+      <h2 className="calories"> calories: {context.selectedRecipe.recipe.calories.toFixed(0)}</h2>
     </div>
-    <div className='calories'>
-      <h6> calories: {context.selectedRecipe.recipe.calories.toFixed(2)}</h6>
     </div>
   </>
+  
   )
 }
 
