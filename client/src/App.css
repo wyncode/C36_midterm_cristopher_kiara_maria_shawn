@@ -5,6 +5,13 @@
   justify-content: space-around;
 }
 
+body {
+  background-image: url(https://cdn5.vectorstock.com/i/1000x1000/42/54/simple-triangular-orange-background-vector-22374254.jpg);
+  background-repeat: no-repeat;
+   background-size: cover;
+}
+
+
 .cards {
   width: 100vw;
   display: grid;
@@ -22,8 +29,8 @@
   }
 img {
   margin-left: 70px;
-  border-radius: 10px;
-  border: 1px solid gray;
+  border-radius: 5px;
+  /* border: 1px solid rgb(184, 4, 4); */
 }
 
 .servingSize {
@@ -37,8 +44,7 @@ img {
 }
 
 .healthLabel {
-  padding-top: 10px;
-  color: rgb(30, 114, 30);
+  padding-top: 8rem;
   position: relative;
   text-align: center;
   margin-left: 0px;
@@ -46,16 +52,16 @@ img {
 }
 
 .cautions {
-  padding-top: 10px;
+  padding-top: 8rem;
   position: relative;
-  color: rgb(30, 114, 30);
+  color: black;
   /* margin-top: 6rem; */
   text-align: center;
 }
 
 .calories {
-  color: rgb(30, 114, 30);
-  margin-top: 5rem;
+  padding-top: 10rem;
   position: relative;
+  color: black;
 }
 

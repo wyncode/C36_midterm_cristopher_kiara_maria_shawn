@@ -6,10 +6,6 @@
   <a href="https://api.edamam.com/search?q=${req.params.query}s&app_id=${process.env.APP_ID}&app_key=${process.env.APP_KEY}&health=${healthLabel">View API</a>
 </h3>
 
-![Tech logos]()
-
-![App screenshot]()
-
 ## What is this and who is it for 🤷‍♀️
 Anyone who's interested in Taco Recipes.
 
