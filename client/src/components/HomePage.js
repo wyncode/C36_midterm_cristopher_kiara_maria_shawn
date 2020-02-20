@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
-import Input from '@material-ui/core/Input';
+import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -11,29 +11,34 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import { AppContext } from '../context/AppContext';
-
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 const SearchTacos = () => {
   const history = useHistory();
-  const context = useContext(AppContext)
+  const context = useContext(AppContext);
   const [apiData, setApiData] = useState([]);
   const [query, setQuery] = useState('');
-  const [userSelection, setUserSelection] = useState(0);
+  const [loading, setLoading] = useState(false);
 
- 
   const handleSubmit = async e => {
-    e.preventDefault();
-    const result = await axios.get(`/api/recipes/${query}`);
-    setApiData(result.data);
-    // make axios get request to backend
-    console.log(result.data)
-    setQuery('');
+    if (query === '') {
+      void 0;
+    } else {
+      setLoading(true);
+      e.preventDefault();
+      const result = await axios.get(`/api/recipes/${query}`);
+      setLoading(false);
+      setApiData(result.data);
+      // make axios get request to backend
+      console.log(result.data);
+      setQuery('');
+    }
   };
 
   const onRecipeClick = recipe => {
-    context.setSelectedRecipe(recipe)
-    history.push("/recipes")
-  }
+    context.setSelectedRecipe(recipe);
+    history.push('/recipes');
+  };
 
   const HandleChange = event => {
     setQuery(event.target.value);
@@ -42,82 +47,111 @@ const SearchTacos = () => {
   const useStyles = makeStyles(theme => ({
     cards: {
       maxWidth: 350,
-      backgroundColor: '#e0e0e0',
+      backgroundColor: '#e0e0e0'
     },
     search: {
       display: 'flex',
-      justifyContent: "center",
-      border: "1px solid black",
-      margin: theme.spacing(1),
-      margin: 150
-
+      justifyContent: 'center',
+      margin: theme.spacing(10),
+      width: 750
+    },
+    form: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    button: {
+      backgroundColor: '#FF0101',
+      color: '#FFFFFF',
+      height: '200'
+    },
+    root: {
+      width: '100%',
+      '& > * + *': {
+        marginTop: theme.spacing(2)
+      }
     }
-    }
-
-));
+  }));
 
   const classes = useStyles();
 
   return (
     <>
-  
-        <form
-          onSubmit={handleSubmit}
+      <form
+        onSubmit={handleSubmit}
+        noValidate
+        autoComplete="off"
+        className={classes.form}
+      >
+        <TextField
+          onChange={HandleChange}
           className={classes.search}
-          noValidate
-          autoComplete="off"
+          value={query}
+          id="outlined-basic"
+          label="Look for Taco's Here!"
+          variant="outlined"
+        />
+        <Button
+          type="submit"
+          style={{ height: '50px', width: '100px' }}
+          className={classes.button}
+          variant="contained"
         >
-          <Input
-            onChange={HandleChange}
-            value={query}
-            placeholder="Look for Taco's Here!"
-            inputProps={{ 'aria-label': 'description' }}
-          />
-        </form>
-        <div className="cards">
-      {apiData.length ? (
-        apiData.map(item => {
-          return(
-           
-            <Card className={classes.cards}>
-              <CardActionArea>
-                <CardMedia
-                  style = {{ 
-                  height: "200px", 
-                  width:"400px",
-                }}
-                className={classes.cards}
-                image={item.recipe.image}
-                title="Contemplative Reptile"
-                />
-                <CardContent>
-                  <Typography disableTypography variant="h5" component="h2">
-                    {item.recipe.label}
-                  </Typography>
-                  <Typography disableTypography='false' variant="body2" color="textSecondary" component="p">
-                    {item.recipe.healthLabels.join(", ")}
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardActions>
-
-                <Button onClick={() => onRecipeClick(item)} size="small" color="primary">
-
-                  Learn More
-                </Button>
-              </CardActions>
-            </Card>
-          
-        ) 
-      })
+          Search
+        </Button>
+      </form>
+      {loading ? (
+        <div className={classes.root}>
+          <LinearProgress />
+        </div>
       ) : (
-        <h1>Search now!</h1>
+        <div className="cards">
+          {apiData.length ? (
+            apiData.map(item => {
+              return (
+                <Card className={classes.cards}>
+                  <CardActionArea>
+                    <CardMedia
+                      style={{
+                        height: '200px',
+                        width: '400px'
+                      }}
+                      className={classes.cards}
+                      image={item.recipe.image}
+                      title="Contemplative Reptile"
+                    />
+                    <CardContent>
+                      <Typography variant="h5" component="h2">
+                        {item.recipe.label}
+                      </Typography>
+                      <Typography
+                        variant="body2"
+                        color="textSecondary"
+                        component="p"
+                      >
+                        {item.recipe.healthLabels.join(', ')}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                  <CardActions>
+                    <Button
+                      onClick={() => onRecipeClick(item)}
+                      size="small"
+                      color="primary"
+                    >
+                      Learn More
+                    </Button>
+                  </CardActions>
+                </Card>
+              );
+            })
+          ) : (
+            <h1>Search now!</h1>
+          )}
+        </div>
       )}
-      </div>
     </>
   );
-  
-  
 };
 
 export default SearchTacos;
